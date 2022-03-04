@@ -84,4 +84,13 @@ public class ProductService {
             return Collections.emptyList();
         }
     }
+
+    public List<Product> productGenericSearch(final SearchRequestDTO searchRequestDTO, final Date date) {
+        final SearchRequest request = SearchUtil.buildSearchRequest(
+                Indices.PRODUCT_INDEX,
+                searchRequestDTO,
+                "createdAt",
+                date);
+        return searchInternal(request);
+    }
 }

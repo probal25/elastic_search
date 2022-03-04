@@ -45,4 +45,11 @@ public class ProductController {
     public List<Product> getAllProductCreatedSince(@PathVariable @DateTimeFormat(pattern = "yyyy-MM-dd") Date date) {
         return this.productService.getAllProductCreatedSince(date);
     }
+
+    @ResponseBody
+    @RequestMapping(value = "/generic_search/{date}", method = RequestMethod.POST)
+    public List<Product> productGenericSearch(@RequestBody final SearchRequestDTO searchRequestDTO,
+                                              @PathVariable @DateTimeFormat(pattern = "yyyy-MM-dd") Date date) {
+        return this.productService.productGenericSearch(searchRequestDTO, date);
+    }
 }
