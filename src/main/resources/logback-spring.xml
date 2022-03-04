@@ -1,1 +1,0 @@
-<logger name="org.springframework.data.elasticsearch.client.WIRE" level="trace"/>
