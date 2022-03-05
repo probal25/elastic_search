@@ -35,7 +35,16 @@ public class ProductService {
     }
 
     public void createProductIndexBulk(final List<Product> products) {
-        productDao.saveAll(products);
+        if (products.size() > 0) {
+            log.info("Saving product List");
+            productDao.saveAll(products);
+        } else {
+            log.info("Empty list");
+        }
+    }
+
+    public List<Product> getAllProducts() {
+        return productDao.findAll();
     }
 
     public void createProductIndex(final Product product) {

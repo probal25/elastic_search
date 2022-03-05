@@ -31,7 +31,20 @@ public class ProductController {
     @ResponseBody
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     public Product findProductById(@PathVariable final String id) {
+
         return productService.findProductById(id);
+    }
+
+    @ResponseBody
+    @RequestMapping(value = "/all", method = RequestMethod.GET)
+    public List<Product> getAllProduct() {
+        return this.productService.getAllProducts();
+    }
+
+    @ResponseBody
+    @RequestMapping(value = "/save_all", method = RequestMethod.POST)
+    public void productBulkSave(@RequestBody final List<Product> products) {
+        this.productService.createProductIndexBulk(products);
     }
 
     @ResponseBody

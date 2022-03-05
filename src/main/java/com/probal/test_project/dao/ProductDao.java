@@ -9,6 +9,8 @@ public interface ProductDao extends ElasticsearchRepository<Product, String> {
 
     List<Product> findByName(String name);
 
+    List<Product> findAll();
+
     List<Product> findByNameContaining(String name);
 
     List<Product> findByManufacturerAndCategory
